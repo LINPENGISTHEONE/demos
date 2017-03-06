@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://js.jirengu.com
+
+Copyright (c) 2017 by anonymous (http://js.jirengu.com/virazupoje/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+.layout {
+     width: 600px;
+     margin: 0 auto;
+}
+
+.close {
+     float: right;
+     font-size: 24px;
+     font-weight: bold;
+     color: #fff;
+     text-decoration: none;
+     cursor: pointer;
+     padding-top: 12px;
+     
+}
+
+.content {
+     margin-top: 30px;
+     padding: 1px 16px;
+     border-radius: 3px;
+}
+
+.content>h3 {
+     color: #fff;
+     font-size: 24px;
+     font-weight: bold;
+}
+
+.content>p {
+     color: #fff;
+}
+
+.content.congratulations {
+     background-color: #4CAF50; 
+}
+
+.content.notice {
+     background-color: #2196F3;
+}
+
+.content.danger {
+     background-color: #f44336;
+}
+
+.content.alert {
+     background-color: #ff9800;
+
+}
+</style>
+</head>
+<body>
+  <div class="layout">
+    <div class="content congratulations">
+      <span class="close">×</span>
+      <h3>恭喜你</h3>
+      <p>获得本周学霸，继续加油吧!</p>
+    </div>
+     <div class="content notice">
+       <span class="close">×</span>
+      <h3>通知</h3>
+      <p>晚上上课，不要忘了。</p>
+    </div>  
+     <div class="content danger">
+       <span class="close">×</span>
+       <h3>天啊</h3>
+      <p>竟然几天没做任务。</p>
+    </div>  
+     <div class="content alert">
+      <span class="close">×</span>
+      <h3>警告</h3>
+      <p>学如逆水行舟，不进则退。</p>
+    </div>  
+  </div>  
+</body>
+</html>

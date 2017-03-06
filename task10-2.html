@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://js.jirengu.com
+
+Copyright (c) 2017 by anonymous (http://js.jirengu.com/rimutaxuxo/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+body {
+    font-family: arial;
+}
+
+.box {
+    width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+
+.box>h2 {
+    color: #fff;
+    background-color: #009688;
+    padding: 16px 16px;
+}
+
+
+.box form{
+    padding: 0px 20px 60px 20px;
+
+}
+
+.box .overflow {
+    overflow: auto;
+    margin-top: 30px;
+  
+}
+
+.box input[type=text] {
+    width: 103%;
+    border: none;
+    border-bottom: 1px solid black;
+    line-height: 1.5;
+} 
+
+.box textarea {
+    width: 103%;
+    border: none;
+    border-bottom: 1px solid black; 
+    line-height: 1.5;
+    
+}
+
+.box .half {
+    float: left;
+    width: 50%;
+    line-height: 1.5; 
+    margin-top: 30px;
+}
+
+.box label {
+    color: #757575;
+    vertical-align: middle;
+}
+
+.box input[type=submit] {
+    background-color: #009688;
+    color: #fff;
+    border: none;
+    padding: 8px 18px;
+    position: relative;
+    top: 30px;
+    right:280px;
+}
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+   <div class="layout">
+     <div class="box">
+         <h2>信息收集表</h2>
+         <form action="" method="post">
+           <div class="overflow">
+              <label for="name">姓名</label>
+              <input type="text" id="name" name="name">
+           </div>
+           <div class="overflow">
+              <label for="qq">QQ</label>
+              <input type="text" id="qq" name="qq">
+           </div>  
+           <div class="overflow">
+              <label for="word">要说的话</label>
+             <textarea type="text" id="word" cols="30" rows="4"></textarea>
+           </div>  
+             <div class="half">
+               <input type="checkbox" value="food" id="milk" checked="checked">
+               <label for="milk">Milk</label>
+               <br>
+               <input type="checkbox" value="food" id="sugar">
+               <label for="milk">Sugar</label>
+               <br>
+               <input type="checkbox" value="food" id="lemon">
+               <label for="milk">Lemon</label>
+               <br>
+             </div>
+              <div class="half">
+               <input type="radio" value="male" id="male" name="gender" checked="checked">
+               <label for="milk">Male</label>
+               <br>
+               <input type="radio" value="female" id="female" name="gender">
+               <label for="milk">Female</label>
+               <br>
+             </div>
+               <div>
+                <input type="submit" value="提交">
+               </div>  
+         </form>  
+     </div>  
+   </div>  
+</body>
+</html>
