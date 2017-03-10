@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://js.jirengu.com
+
+Copyright (c) 2017 by anonymous (http://js.jirengu.com/bikefiruwa/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+.layout {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.main {
+  width: 100%;
+}
+
+.main, .aside-left, .aside-right{
+  float: left;
+}
+
+.content {
+  height: 300px;
+  background: blue;
+  margin-left: 100px;
+  margin-right: 200px;
+}
+
+.aside-left{
+  width: 100px;
+  height: 500px;
+  background: yellow;
+  margin-left: -100%;
+}
+
+.aside-right {
+  width: 200px;
+  height: 500px;
+  background: red;
+  margin-left: -200px;
+}
+</style>
+</head>
+<body>
+  <div class="layout">
+      <div class="main">
+          <div class="content">content</div>
+      </div>
+      <div class="aside-left">aside-left</div>
+      <div class="aside-right">aside-right</div>
+  </div>
+</body>
+</html>
