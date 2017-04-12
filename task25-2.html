@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模态框效果</title>
+    <style>
+        clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .active {
+            background-color: #ddd;
+        }
+
+        #btn {
+            padding: 5px 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    
+        .box {
+            width: 600px;
+            height: 220px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -110px;
+            margin-left: -300px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-shadow: 0 0 4px 1px #aaa;
+            display: none;
+        }
+    
+        .box .header {
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .box .header .close {
+            float: right;
+            color: purple;
+            padding: 0 20px;
+            cursor: pointer;
+        }
+
+        .box .header h1 {
+            font-size: 18px;
+            font-weight: 500;
+            padding-left: 10px;  
+        }
+        
+        .box .content {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .box .content p {
+            padding-left: 10px;
+        }
+
+        .box .footer span {
+            float: right;
+            padding: 10px 20px 0 0;
+            cursor: pointer;
+        }
+    
+        .box .footer span:nth-child(2) {
+            padding: 10px 10px;
+        }
+    
+    
+    </style>
+</head>
+<body>
+    <bottom id="btn">点我</bottom>
+
+    <div class="box">
+        <div class="header clearfix">
+            <span class="close">X</span>
+            <h1>我是标题</h1>
+        </div>
+        <div class="content">
+            <p>我是内容</p>
+            <p>我是内容</p>
+            <p>我是内容</p>
+        </div>
+        <div class="footer">
+            <span>确定</span>
+            <span class="cancel">取消</sapn>
+        </div>
+    </div>
+    <script>
+        var btn = document.querySelector('#btn');
+        var box = document.querySelector('.box');
+        var close = document.querySelector('.close');
+        var cancel = document.querySelector('.cancel');
+
+        btn.addEventListener('click',function(e){
+            e.stopPropagation();    //阻止btn事件冒泡，一旦冒泡，就会执行112行代码，使得box出现后又再次消失。
+            box.style.display = 'block';
+            document.body.classList.add('active');
+        })
+
+        box.addEventListener('click',function(e){
+            e.stopPropagation();    //阻止box事件冒泡，一旦冒泡，就会执行112行代码，使得box出现后又再次消失。
+        })
+
+        window.addEventListener('click',function(){
+            box.style.display = 'none';
+            document.body.classList.remove('active');   //给body添加一个active的类。
+        })
+
+        close.addEventListener('click',function(){
+            box.style.display = 'none';
+            document.body.classList.remove('active');
+        })
+    
+        cancel.addEventListener('click',function(){
+            box.style.display = 'none';
+            document.body.classList.remove('active');
+        })
+    </script>
+</body>
+</html>
