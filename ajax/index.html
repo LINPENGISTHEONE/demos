@@ -64,21 +64,21 @@
     */ 
 
 
+    var btn = document.querySelector('#load-more')
     var ct = document.querySelector('#ct')
-    var btn = document.querySelector('.btn')
-    var pageIndex = 3
-    var isDataArrive = true
-
-
+    var pageIndex = 0
+    var isDataArrive = true //默认情况数据是到来的
 
     btn.addEventListener('click',function(e){
         e.preventDefault()
-        if(!isDataArrive){
-            return
-        }
-        loadData(function(contents){
-            renderPage(contents)
-            pageIndex += 5
+
+        if (!isDataArrive){    //用户点击按钮时，判断数据是否到来，没有就return
+            return;
+        } 
+
+        loadData(function(news){  //当执行options.onSuccess(results)后，把function(news){}当做参数传递给function loadData(callback){}里面的两个callback
+            renderPage(news)
+            pageIndex = pageIndex + 5
             isDataArrive = true
         })
         isDataArrive = false
@@ -87,47 +87,47 @@
     function loadData(callback){
         ajax({
             type: 'get',
-            url: 'loadMore',
-            data:{
+            ulr: '/loadMore',
+            data: {
                 index: pageIndex,
                 length: 5
             },
-            onSuccess: callback,
+            onSuccess: callback,  //这是个函数，没有括号，说明不执行
             onError: function(){
                 console.log('error')
             }
         })
-    }
+    } 
 
-    function renderPage(contents){
+    function renderPage(news){
         var fragment = document.createDocumentFragment()
-        for(var i=0;i<contents.length;i++){
+        for(var i=0;i<news.length;i++){
             var node = document.createElement('li')
-            node.innerText = contents[i]
+            node.innerText = news[i]
             fragment.appendChild(node)
         }
         ct.appendChild(fragment)
     }
 
-    function ajax(opts){
+    function ajax(options){
         var xhr = new XMLHttpRequest()
-        xhr.onreadystatechange = function(){
+        xhr.onreadystatechange = function(){  //这个函数先不执行，赋值给onreadystatechange
             if(xhr.readyState === 4){
                 if(xhr.status === 200 || xhr.status === 304){
-                    var results = JSON.parse(xhr.responseText)
-                    opts.onSuccess(results)
+                var results = JSON.parse(xhr.responseText)
+                options.onSuccess(results)  // 相当于 callback(results)  
                 }else{
-                    opts.onError()
+                    options.onError()
                 }
             }
         }
         var query = '?'
-        for(key in opts.data){
-            query += key + '=' + opts.data[key] + '&' 
+        for(key in options.data){
+            query += key + '=' + options.data[key] + '&'
         }
-        query = query.substr(0,query.length - 1)
-        xhr.open(opts.type,opts.url + query,true)
-        xhr.send()
+        query = query.substr(0,query.length-1)
+        xhr.open(options.type,options.ulr + query,true)
+        xhr.send()  //请求发送后，服务器给数据，才会执行xhr.onreadystatechange = function(){}
     }
 
 
